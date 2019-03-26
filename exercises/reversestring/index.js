@@ -18,9 +18,20 @@
 // }
 
 
-solution using reverse helper
+//solution using reverse helper
+// function reverse(str) {
+//   return str.split('').reverse().join('')
+// }
+
+
+//solution using for of syntax for for loop
+//which can help make less errors in for loops
 function reverse(str) {
-  return str.split('').reverse().join('')
+  let reversed = ''
+  for (let character of str) {
+    reversed = character + reversed
+  }
+  return reversed
 }
 
 
