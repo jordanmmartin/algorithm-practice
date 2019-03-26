@@ -7,10 +7,22 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-//My first attempt solution
+//Solution using .every() array helper
+// which does a boolean check on every elem in arr
+//if any iteration returns false, then will return false
+//not best solution because only need to check up to halfway
 function palindrome(str) {
-  let reversed = str.split('').reduce((rev, char) => char + rev, '')
-  return str === reversed
+  //first arg passed into .every is the elem of arr
+  //seconde is the index of the elem
+  return str.split('').every((char, i) => {
+    return char === str[str.length - i - 1]
+  }, )
 }
 
 module.exports = palindrome;
+
+//My first attempt solution
+// function palindrome(str) {
+//   let reversed = str.split('').reduce((rev, char) => char + rev, '')
+//   return str === reversed
+// }
