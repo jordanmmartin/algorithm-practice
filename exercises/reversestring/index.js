@@ -6,6 +6,11 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
+// solutions using reduce helper
+function reverse(str) {
+  return str.split('').reduce((rev, char) => char + rev , '')
+}
+
 
 // My first attempt solution
 // function reverse(str) {
@@ -26,13 +31,14 @@
 
 //solution using for of syntax for for loop
 //which can help make less errors in for loops
-function reverse(str) {
-  let reversed = ''
-  for (let character of str) {
-    reversed = character + reversed
-  }
-  return reversed
-}
+// function reverse(str) {
+//   let reversed = ''
+//   for (let character of str) {
+//     reversed = character + reversed
+//   }
+//   return reversed
+// }
+
 
 
 module.exports = reverse;
