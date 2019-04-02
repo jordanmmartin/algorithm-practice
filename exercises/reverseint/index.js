@@ -9,15 +9,20 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
-  let arr = n.toString().split('')
-  if(Math.sign(n) === -1){
-    arr.shift()
-  }
-
-  let str = arr.reduce((rev, char) => {
-    return char + rev
-  })
-  return parseInt(str) * Math.sign(n)
+  const rev = n.toString().split('').reverse().join('')
+  return parseInt(rev) * Math.sign(n)
 }
 
 module.exports = reverseInt;
+
+// My initial solution
+// function reverseInt(n) {
+//   let arr = n.toString().split('')
+//   if(Math.sign(n) === -1){
+//     arr.shift()
+//   }
+//   let str = arr.reduce((rev, char) => {
+//     return char + rev
+//   })
+//   return parseInt(str) * Math.sign(n)
+// }
