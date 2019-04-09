@@ -10,18 +10,29 @@
 
 function chunk(array, size) {
   const chunked = []
-  for(let elem of array){
-    const last = chunked[chunked.length - 1]
-    if(!last || last.length === size){
-      chunked.push([elem])
-    } else {
-      last.push(elem)
-    }
+  let index = 0
+  while(index < array.length) {
+    chunked.push(array.slice(index, index +size))
+    index += size
   }
   return chunked
 }
 
 module.exports = chunk;
+
+//first solution
+// function chunk(array, size) {
+//   const chunked = []
+//   for(let elem of array){
+//     const last = chunked[chunked.length - 1]
+//     if(!last || last.length === size){
+//       chunked.push([elem])
+//     } else {
+//       last.push(elem)
+//     }
+//   }
+//   return chunked
+// }
 
 //my initial attempt
 // function chunk(array, size) {
