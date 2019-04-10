@@ -9,23 +9,48 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  let strA = stringA.replace(/[^\w]/g, '').toLowerCase()
-  let strB = stringB.replace(/[^\w]/g, '').toLowerCase()
-  let charsA = {}
-  let charsB = {}
-  for(let char of strA){
-    charsA[char] ? charsA[char] = charsA[char] + 1 : charsA[char] = 1
+  const aCharMap = buildCharMap(stringA)
+  const bCharMap = buildCharMap(stringB)
+  let bigger = Object.keys(aCharMap).length > Object.keys(bCharMap).length ? aCharMap : bCharMap
+  if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length){
+    return false
   }
-  for(let char of strB){
-    charsB[char] ? charsB[char] = charsB[char] + 1 : charsB[char] = 1
-  }
-  let bigger = strA.length > strB.length ? charsA : charsB
-  for(let char in bigger){
-    if(charsA[char] !== charsB[char]){
+  for(let char in aCharMap){
+    if(aCharMap[char] !== bCharMap[char]){
       return false
     }
   }
   return true
 }
 
+function buildCharMap(str) {
+  const charMap = {}
+  for(let char of str.replace(/[^\w]/g, '').toLowerCase()){
+    charMap[char] = charMap[char] + 1 || 1
+  }
+  return charMap
+}
+
 module.exports = anagrams;
+
+
+//my initial solution
+// function anagrams(stringA, stringB) {
+//   let strA = stringA.replace(/[^\w]/g, '').toLowerCase()
+//   let strB = stringB.replace(/[^\w]/g, '').toLowerCase()
+//   let charsA = {}
+//   let charsB = {}
+//   for(let char of strA){
+//     charsA[char] ? charsA[char] = charsA[char] + 1 : charsA[char] = 1
+//   }
+//   for(let char of strB){
+//     charsB[char] ? charsB[char] = charsB[char] + 1 : charsB[char] = 1
+//   }
+//   let bigger = strA.length > strB.length ? charsA : charsB
+//   for(let char in bigger){
+//     if(charsA[char] !== charsB[char]){
+//       return false
+//     }
+//   }
+//   return true
+// }
