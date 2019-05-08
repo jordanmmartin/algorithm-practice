@@ -19,6 +19,7 @@ function palindrome(str) {
   }, )
 }
 
+
 module.exports = palindrome;
 
 //My first attempt solution
