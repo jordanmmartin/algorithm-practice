@@ -31,6 +31,7 @@ function buildCharMap(str) {
   return charMap
 }
 
+
 module.exports = anagrams;
 
 //solution using helper function to build char maps
