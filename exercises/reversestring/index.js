@@ -12,6 +12,7 @@ function reverse(str) {
 }
 
 
+
 // My first attempt solution
 // function reverse(str) {
 //   let arr = str.split('')
